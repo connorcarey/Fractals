@@ -7,12 +7,13 @@ public class SierpinskiTriangle extends FractalPanel {
 
     public SierpinskiTriangle() {
         super();
-        iterations = 20;
+        iterations = 100;
     }
 
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.RED);
+        g.fillRect(getWidth()/2-5, getHeight()/2-5, 10, 10);
 
         FractalPoint one = new FractalPoint(new double[]{-300, -300}, reference, getWidth(), getHeight(), scale);
         FractalPoint two = new FractalPoint(new double[]{0, 300}, reference, getWidth(), getHeight(), scale);
@@ -45,12 +46,20 @@ public class SierpinskiTriangle extends FractalPanel {
 
         g.drawPolygon(xPoints, yPoints, 3);
 
-        drawSierpinski(g, iterations - 1, x, y - height / 2, width / 2, height / 2);
-        drawSierpinski(g, iterations - 1, x + width / 4, y, width / 2, height / 2);
-        drawSierpinski(g, iterations - 1, x + width / 2, y - height / 2, width / 2, height / 2);
+        System.out.println("xPos: "+xPos+", yPos: "+yPos);
+
+        if (xPos >= x && xPos <= x + width / 2 && yPos <= y - height / 2 && yPos >= yPos - height) {
+            drawSierpinski(g, iterations - 1, x, y - height / 2, width / 2, height / 2);
+        }
+        if (xPos >= x + width / 4 - (getWidth()/2f/scale) && xPos <= x + width / 2 + width / 4 && yPos <= y && yPos >= y - height / 2) {
+            drawSierpinski(g, iterations - 1, x + width / 4, y, width / 2, height / 2);
+        }
+        if (xPos >= x + width / 2 && xPos <= x + width && yPos <= y - height / 2 && yPos >= y - height / 2) {
+            drawSierpinski(g, iterations - 1, x + width / 2, y - height / 2, width / 2, height / 2);
+        }
     }
 
-    public String toString(){
+    public String toString() {
         return "Sierpinski Triangle";
     }
 }

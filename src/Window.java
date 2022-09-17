@@ -25,7 +25,10 @@ public class Window extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+//        getContentPane().remove(0);
+//        switch(e.getActionCommand()){
+//            case e.
+//        }
     }
 
     public static void main(String[] args){
