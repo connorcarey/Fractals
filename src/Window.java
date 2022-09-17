@@ -9,7 +9,7 @@ public class Window extends JFrame implements ActionListener {
         FractalPanel fPanel = new SierpinskiTriangle();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
+        //setResizable(false);
         getContentPane().add(fPanel);
 
         JMenuBar menuBar = new JMenuBar();

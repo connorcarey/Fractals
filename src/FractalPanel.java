@@ -4,33 +4,27 @@ import java.awt.event.*;
 
 public class FractalPanel extends JPanel implements MouseMotionListener, MouseListener, MouseWheelListener {
 
-    double xPos;
-    double yPos;
-    double xNot;
-    double yNot;
-    int height;
-    int width;
-    int iterations;
-    double scale;
-    Color[][] pixels;
-    Color background;
+    protected double xPos;
+    protected double yPos;
+    protected double[] reference;
+    protected double xNot;
+    protected double yNot;
+    protected float scale;
+    private Color background;
 
     public FractalPanel() {
         xPos = 0f;
         yPos = 0f;
-        width = 800;
-        height = 800;
-        iterations = 50;
+        reference = new double[]{yPos, xPos};
 
-        pixels = new Color[width][height];
-        scale = 1.0;
+        scale = 1f;
         background = Color.BLACK;
 
         addMouseListener(this);
         addMouseMotionListener(this);
         addMouseWheelListener(this);
         setBackground(background);
-        setPreferredSize(new Dimension(width, height));
+        setPreferredSize(new Dimension(800, 800));
     }
 
     @Override
@@ -40,18 +34,12 @@ public class FractalPanel extends JPanel implements MouseMotionListener, MouseLi
     }
 
     @Override
-    public void setPreferredSize(Dimension preferredSize) {
-        width = (int) preferredSize.getWidth();
-        height = (int) preferredSize.getHeight();
-        super.setPreferredSize(preferredSize);
-    }
-
-    @Override
     public void mouseDragged(MouseEvent e) {
         xPos = xPos + (e.getX() - xNot) * (1 / scale);
         yPos = yPos - (e.getY() - yNot) * (1 / scale);
         xNot = e.getX();
         yNot = e.getY();
+        reference = new double[]{xPos, yPos};
         repaint();
     }
 
@@ -90,9 +78,9 @@ public class FractalPanel extends JPanel implements MouseMotionListener, MouseLi
     public void mouseWheelMoved(MouseWheelEvent e) {
         scale *= e.getWheelRotation() > 0 ? 0.9 : 1.1;
         if (scale <= 1.0) {
-            scale = 1.0;
+            scale = 1f;
         }
-        System.out.println(scale);
+        System.out.println("Scale: "+scale);
         repaint();
     }
 }
