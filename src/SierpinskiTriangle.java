@@ -14,16 +14,15 @@ public class SierpinskiTriangle extends FractalPanel {
         super.paintComponent(g);
         g.setColor(Color.RED);
 
-        FractalPoint one = new FractalPoint(new double[]{-100, -100}, reference, getWidth(), getHeight(), scale);
-        FractalPoint two = new FractalPoint(new double[]{0, 100}, reference, getWidth(), getHeight(), scale);
-        FractalPoint three = new FractalPoint(new double[]{100, -100}, reference, getWidth(), getHeight(), scale);
+        FractalPoint one = new FractalPoint(new double[]{-300, -300}, reference, getWidth(), getHeight(), scale);
+        FractalPoint two = new FractalPoint(new double[]{0, 300}, reference, getWidth(), getHeight(), scale);
+        FractalPoint three = new FractalPoint(new double[]{300, -300}, reference, getWidth(), getHeight(), scale);
 
         g.drawPolygon(new int[]{(int) one.calculateX(), (int) two.calculateX(), (int) three.calculateX()},
                 new int[]{(int) one.calculateY(), (int) two.calculateY(), (int) three.calculateY()}, 3);
 
-        drawSierpinski(g, iterations, -100, 100, 200, 200);
+        drawSierpinski(g, iterations, -300, 300, 600, 600);
     }
-
 
     private void drawSierpinski(Graphics g, int iterations, double x, double y, double width, double height) {
         if (iterations <= 0) {
