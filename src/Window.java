@@ -1,38 +1,35 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
 
-public class Window extends JFrame implements ActionListener {
+public class Window extends JFrame {
 
-    public Window(){
-        super("Connor's Fractals");
-        FractalPanel fPanel = new SierpinskiTriangle();
+    JPanel cFractal;
+    JPanel settings;
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //setResizable(false);
-        getContentPane().add(fPanel);
+    public Window() {
+        // Creating Window [Boilerplate]
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(800, 600);
+        setLayout(new BorderLayout());
+        setResizable(true);
+        setTitle("Fractals");
 
-        JMenuBar menuBar = new JMenuBar();
-        JMenu fractalMenu = new JMenu("Fractals");
-        JMenuItem sierpinski = new JMenuItem("Sierpinski Triangle");
-        fractalMenu.add(sierpinski);
-        menuBar.add(fractalMenu);
-        setJMenuBar(menuBar);
+        // Add Fractal Panel
+        cFractal = new ComplexFractalPanel();
+        add(cFractal, BorderLayout.CENTER);
 
-        pack();
+        // Setup and add settings panel
+        settings = new JPanel();
+        settings.setBorder(new TitledBorder("Settings"));
+        settings.setPreferredSize(new Dimension(200, 600));
+        settings.setLayout(new CardLayout());
+        add(settings, BorderLayout.EAST);
+
         setVisible(true);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-//        getContentPane().remove(0);
-//        switch(e.getActionCommand()){
-//            case e.
-//        }
-    }
-
-    public static void main(String[] args){
+    public static void main(String[] args) {
         new Window();
     }
-
 }
