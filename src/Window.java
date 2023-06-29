@@ -1,11 +1,15 @@
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 public class Window extends JFrame {
 
-    JPanel cFractal;
-    JPanel settings;
+    private JPanel displayPanel;
+    private JPanel settingsPanel;
 
     public Window() {
         // Creating Window [Boilerplate]
@@ -15,18 +19,17 @@ public class Window extends JFrame {
         setResizable(true);
         setTitle("Fractals");
 
-        // Add Fractal Panel
-        cFractal = new ComplexFractalPanel();
-        add(cFractal, BorderLayout.CENTER);
+        // Set up the display card panel
+        displayPanel = new JPanel();
+        setPreferredSize(new Dimension(600, 600));
+        setLayout(new CardLayout());
 
-        // Setup and add Settings Panel
-        settings = new JPanel();
-        settings.setBorder(new TitledBorder("Settings"));
-        settings.setPreferredSize(new Dimension(200, 600));
-        settings.setLayout(new CardLayout());
-        add(settings, BorderLayout.EAST);
+        // Set up the settings panel
+        settingsPanel = new SettingsPanel(displayPanel);
 
-        // Set the frame to be visible
+        // Add components then set the frame to be visible.
+        add(displayPanel, BorderLayout.CENTER);
+        add(settingsPanel, BorderLayout.EAST);
         setVisible(true);
     }
 
