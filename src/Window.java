@@ -10,7 +10,7 @@ public class Window extends JFrame {
     public Window() {
         // Creating Window [Boilerplate]
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(800, 600);
+        setMinimumSize(new Dimension(800, 600));
         setLayout(new BorderLayout());
         setResizable(true);
         setTitle("Fractals");
@@ -19,13 +19,14 @@ public class Window extends JFrame {
         cFractal = new ComplexFractalPanel();
         add(cFractal, BorderLayout.CENTER);
 
-        // Setup and add settings panel
+        // Setup and add Settings Panel
         settings = new JPanel();
         settings.setBorder(new TitledBorder("Settings"));
         settings.setPreferredSize(new Dimension(200, 600));
         settings.setLayout(new CardLayout());
         add(settings, BorderLayout.EAST);
 
+        // Set the frame to be visible
         setVisible(true);
     }
 
