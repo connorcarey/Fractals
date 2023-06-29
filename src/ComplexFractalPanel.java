@@ -4,8 +4,20 @@ import java.awt.image.BufferedImage;
 
 public class ComplexFractalPanel extends JPanel {
 
+    enum Fractal {
+        MANDELBROT,
+        BURNING_SHIP
+    }
+
+    Fractal current;
+
     public ComplexFractalPanel() {
         setBackground(Color.RED);
+        current = Fractal.MANDELBROT;
+    }
+
+    private void getMandelbrot(int x, int y){
+
     }
 
     @Override
