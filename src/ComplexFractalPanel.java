@@ -26,9 +26,14 @@ public class ComplexFractalPanel extends JPanel {
         BufferedImage img = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
         for(int y = 0; y < getHeight(); y++) {
             for(int x = 0; x < getWidth(); x++){
-                img.setRGB(x, y, 1);
+                img.setRGB(x, y, getRandomRange(0, Integer.MAX_VALUE));
             }
         }
         g.drawImage(img, 0, 0, null);
+    }
+
+    // Helper method to get random range [inclusive, exclusive)
+    private int getRandomRange(int min, int max){
+        return (int)(Math.random() * (max - min) + min);
     }
 }
