@@ -16,6 +16,9 @@ public class SettingsPanel extends JPanel implements ActionListener, ItemListene
     private JPanel cardPanel; // Panel with the different settings for each fractal
     private JComboBox optionsBox; // Combo box with different card options
 
+    // Settings panels
+    private ComplexFractalSettingsPanel complexFractalSettingsPanel;
+
     // Constants
 
     private static final String MANDELBROT = "Mandelbrot";
@@ -23,6 +26,9 @@ public class SettingsPanel extends JPanel implements ActionListener, ItemListene
 
     public SettingsPanel(JPanel displayPanel) {
         this.displayPanel = displayPanel;
+
+        // Create the card settings panels
+        complexFractalSettingsPanel = new ComplexFractalSettingsPanel(new ComplexFractalPanel());
 
         // Set up panel parameters
         setPreferredSize(new Dimension(200, 600));
@@ -35,6 +41,7 @@ public class SettingsPanel extends JPanel implements ActionListener, ItemListene
         // Set up the card panel
         cardPanel = new JPanel();
         cardPanel.setLayout(new CardLayout());
+        cardPanel.add(complexFractalSettingsPanel, "COMPLEX");
         //cardPanel.setBorder(new StrokeBorder(new BasicStroke(2), Color.BLACK));
 
         // Set up the combo box
