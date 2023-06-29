@@ -21,8 +21,8 @@ public class Window extends JFrame {
 
         // Set up the display card panel
         displayPanel = new JPanel();
-        setPreferredSize(new Dimension(600, 600));
-        setLayout(new CardLayout());
+        displayPanel.setPreferredSize(new Dimension(600, 600));
+        displayPanel.setLayout(new CardLayout());
 
         // Set up the settings panel
         settingsPanel = new SettingsPanel(displayPanel);
