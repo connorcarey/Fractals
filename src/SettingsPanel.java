@@ -28,11 +28,15 @@ public class SettingsPanel extends JPanel implements ItemListener {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBorder(new TitledBorder("Settings"));
 
+        // Create the cards
+        ComplexFractalPanel complexFractalPanel = new ComplexFractalPanel();
+
         // Set up the display panel
-        displayPanel.add(new ComplexFractalPanel(), COMPLEX_FRACTAL);
+        displayPanel.add(complexFractalPanel, COMPLEX_FRACTAL);
 
         // Create the card settings panels & Test panels
-        complexFractalSettingsPanel = new ComplexFractalSettingsPanel(new ComplexFractalPanel());
+        complexFractalSettingsPanel = new ComplexFractalSettingsPanel(complexFractalPanel);
+
 
         JPanel testPanel = new JPanel();
         testPanel.setPreferredSize(new Dimension(600, 600));

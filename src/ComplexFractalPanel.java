@@ -13,10 +13,20 @@ public class ComplexFractalPanel extends JPanel implements MouseListener, MouseM
         BURNING_SHIP
     }
 
-    Fractal current;
+    // Placeholder
+    private Fractal current;
+
+    // Display settings
+    private int resolutionModifier;
+
+    // Camera
+    private double xPos;
+    private double yPos;
+    private double zoom;
 
     public ComplexFractalPanel() {
         current = Fractal.MANDELBROT;
+        resolutionModifier = 10;
     }
 
     private void getMandelbrot(int x, int y){
@@ -27,14 +37,24 @@ public class ComplexFractalPanel extends JPanel implements MouseListener, MouseM
     public void paint(Graphics g) {
         super.paint(g);
         BufferedImage img = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
-        for(int y = 0; y < getHeight(); y++) {
-            for(int x = 0; x < getWidth(); x++){
-                img.setRGB(x, y, getRandomRange(0, Integer.MAX_VALUE));
+        int rm = resolutionModifier;
+        for(int y = 0; y <= getHeight() - rm; y += rm){
+            for(int x = 0; x <= getWidth() - rm; x += rm){
+                int col = getRandomRange(0, Integer.MAX_VALUE);
+                for(int i = 0; i < rm; i++){
+                    for(int j = 0; j < rm; j++){
+                        img.setRGB(x+j, y+i, col);
+                    }
+                }
             }
         }
         g.drawImage(img, 0, 0, null);
     }
-    
+
+    public void setResolution(int resolution){
+        resolutionModifier = resolution;
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
 
