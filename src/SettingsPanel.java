@@ -46,6 +46,7 @@ public class SettingsPanel extends JPanel implements ItemListener {
         // Set up the combo box
         String[] options = {COMPLEX_FRACTAL, TEST_OPTION};
         JComboBox optionsBox = new JComboBox(options);
+        optionsBox.setFocusable(false);
         optionsBox.addItemListener(this);
 
         // Add components
