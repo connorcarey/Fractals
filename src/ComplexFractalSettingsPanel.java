@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ComplexFractalSettingsPanel extends JPanel implements ActionListener, ChangeListener {
+public class ComplexFractalSettingsPanel extends JPanel implements ChangeListener {
 
     // Graphic panel
     private ComplexFractalPanel complexFractalPanel;
@@ -18,7 +18,7 @@ public class ComplexFractalSettingsPanel extends JPanel implements ActionListene
         this.complexFractalPanel = complexFractalPanel;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        // Instantiation
+        // Create components
         iterationSlider = new JSlider(JSlider.HORIZONTAL, 0, 200, 10);
         iterationSlider.setToolTipText("Sets iterations for each pixel");
         iterationSlider.setMinorTickSpacing(10);
@@ -27,6 +27,8 @@ public class ComplexFractalSettingsPanel extends JPanel implements ActionListene
         iterationSlider.setPaintLabels(true);
         iterationSlider.addChangeListener(this);
 
+
+
         // Labels
         JLabel iterationLabel = new JLabel("Iterations");
         iterationLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -34,11 +36,6 @@ public class ComplexFractalSettingsPanel extends JPanel implements ActionListene
         // Add components
         add(iterationLabel);
         add(iterationSlider);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
     }
 
     @Override

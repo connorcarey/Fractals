@@ -1,8 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 
-public class ComplexFractalPanel extends JPanel {
+public class ComplexFractalPanel extends JPanel implements MouseListener, MouseMotionListener {
+
 
     enum Fractal {
         MANDELBROT,
@@ -12,7 +16,6 @@ public class ComplexFractalPanel extends JPanel {
     Fractal current;
 
     public ComplexFractalPanel() {
-        setBackground(Color.RED);
         current = Fractal.MANDELBROT;
     }
 
@@ -31,9 +34,44 @@ public class ComplexFractalPanel extends JPanel {
         }
         g.drawImage(img, 0, 0, null);
     }
+    
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
+    }
 
     // Helper method to get random range [inclusive, exclusive)
-    private int getRandomRange(int min, int max){
+    private int getRandomRange(int min, int max) {
         return (int)(Math.random() * (max - min) + min);
     }
 }

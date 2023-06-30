@@ -53,6 +53,8 @@ public class SettingsPanel extends JPanel implements ItemListener {
         cardPanel.add(complexFractalSettingsPanel, COMPLEX_FRACTAL);
         cardPanel.add(testPanel, TEST_OPTION);
 
+        displayPanel.add(new ComplexFractalPanel(), COMPLEX_FRACTAL);
+
         add(optionsBox);
         add(cardPanel);
     }
@@ -60,7 +62,9 @@ public class SettingsPanel extends JPanel implements ItemListener {
     @Override
     public void itemStateChanged(ItemEvent e) {
         CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+        CardLayout displayLayout = (CardLayout) displayPanel.getLayout();
         cardLayout.show(cardPanel, (String)e.getItem());
+        displayLayout.show(displayPanel, (String)e.getItem());
         revalidate();
     }
 }
