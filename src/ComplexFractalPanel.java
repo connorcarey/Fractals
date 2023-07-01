@@ -26,7 +26,7 @@ public class ComplexFractalPanel extends JPanel implements MouseListener, MouseM
 
     public ComplexFractalPanel() {
         current = Fractal.MANDELBROT;
-        resolutionModifier = 10;
+        resolutionModifier = 1;
     }
 
     private void getMandelbrot(int x, int y){

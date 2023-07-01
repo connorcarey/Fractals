@@ -28,7 +28,7 @@ public class ComplexFractalSettingsPanel extends JPanel implements ChangeListene
         iterationSlider.setPaintLabels(true);
         iterationSlider.addChangeListener(this);
 
-        resolutionSlider = new JSlider(JSlider.HORIZONTAL, 1, 15, 5);
+        resolutionSlider = new JSlider(JSlider.HORIZONTAL, 1, 15, 1);
         resolutionSlider.setToolTipText("Sets the resolution of the display panel");
         resolutionSlider.setMinorTickSpacing(1);
         resolutionSlider.setMajorTickSpacing(5);
