@@ -19,7 +19,7 @@ public class ComplexFractalSettingsPanel extends JPanel implements ChangeListene
         this.complexFractalPanel = complexFractalPanel;
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        // Create components
+        // Create slider components
         iterationSlider = new JSlider(JSlider.HORIZONTAL, 0, 200, 10);
         iterationSlider.setToolTipText("Sets iterations for each pixel");
         iterationSlider.setMinorTickSpacing(10);
@@ -31,7 +31,7 @@ public class ComplexFractalSettingsPanel extends JPanel implements ChangeListene
         resolutionSlider = new JSlider(JSlider.HORIZONTAL, 1, 15, 1);
         resolutionSlider.setToolTipText("Sets the resolution of the display panel");
         resolutionSlider.setMinorTickSpacing(1);
-        resolutionSlider.setMajorTickSpacing(5);
+        resolutionSlider.setMajorTickSpacing(7);
         resolutionSlider.setPaintTicks(true);
         resolutionSlider.setPaintLabels(true);
         resolutionSlider.addChangeListener(this);
