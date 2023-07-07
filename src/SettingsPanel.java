@@ -37,7 +37,7 @@ public class SettingsPanel extends JPanel implements ItemListener {
         // Create the card settings panels & Test panels
         complexFractalSettingsPanel = new ComplexFractalSettingsPanel(complexFractalPanel);
 
-
+        // Test panels for testing purposes
         JPanel testPanel = new JPanel();
         testPanel.setPreferredSize(new Dimension(600, 600));
         testPanel.setBackground(Color.RED);
